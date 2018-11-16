@@ -1,0 +1,190 @@
+<!--
+SYST24444 Mobile Web - Assignment 3
+By: Jeanice Nguyen
+August 4, 2017
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+	<link rel="stylesheet" href="css/jquery.mobile.css">
+	<link rel="stylesheet" href="css/mystyles.css" />
+
+
+	<link rel="stylesheet" href="themes/ex3theme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile.js"></script>
+	<script src="js/myscript.js"></script>
+
+	
+</head>
+
+<body>
+
+	<div id="jsonpOut" data-role="page" data-theme="a">
+
+		<div data-role="panel" id="myPanel"><!-- side panel to display local storage information--></div>
+		
+		<header data-role="header" id="header">
+			<h1 id="publisher"></h1>
+		</header>
+		
+      	<section class="ui-content" role="main">
+			<div class="ui-grid-a">
+				
+				<div class="ui-block-a" id="maininfo">
+					<div id="fginfo" data-role="collapsible-set"></div>
+				</div>
+				
+				<div class="ui-block-b" id="form">
+					<a href="#form" class="ui-btn ui-icon-search ui-btn-icon-left">Fill Out Form</a>
+					<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">View Local Storage</a>
+				
+				</div>
+
+			</div>
+		</section>
+			
+
+		<footer data-role="footer">
+			<nav data-role="navbar">
+		        <ul>
+		          	<li><a href="#aboutMe" data-rel='dialog' class="ui-btn ui-icon-about ui-btn-icon-top">About</a></li>
+					<li><a href="http://sheridancollege.ca" class="ui-btn ui-icon-sheridan ui-btn-icon-top">Sheridan</a></li>
+					<li><a href="http://google.ca" class="ui-btn ui-icon-google ui-btn-icon-top">Google</a></li>		
+		        </ul>
+	      	</nav>
+      </footer>
+
+	</div>	
+
+	<div data-role="page" id="aboutMe">
+		<section class="ui-content" role="main">
+			<table>
+				<tr><th>Name</th><td id='name'></td></tr>
+				<tr><th>Program</th><td id='program'></td></tr>
+				<tr><th>Image</th><td id='image'></td></tr>
+				<tr><th>Quote</th><td id='quote'></td></tr>
+			</table>
+			<a href="#jsonpOut" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+		</section>
+	</div>
+
+	<div data-role="page" id="group0">
+		<section class="ui-content" role="main">
+			 <table data-role="table" class="ui-responsive">
+	      		<thead>
+					<tr>
+						<th>Gender</th>
+						<th>Age</th>
+						<th>Servings</th>
+					</tr>
+				</thead>
+				<tbody id="vfServingSpecs"></tbody>
+        	</table>
+			<a href="#jsonpOut" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+		</section>
+	</div>
+
+	<div data-role="page" id="group1">
+		<section class="ui-content" role="main">
+			<table data-role="table" class="ui-responsive">
+	      		<thead>
+					<tr>
+						<th>Gender</th>
+						<th>Age</th>
+						<th>Servings</th>
+					</tr>
+				</thead>
+				<tbody id="grServingSpecs"></tbody>
+        	</table>
+			<a href="#jsonpOut" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+		</section>
+	</div>
+
+	<div data-role="page" id="group2">
+		<section class="ui-content" role="main">
+			<table data-role="table" class="ui-responsive">
+	      		<thead>
+					<tr>
+						<th>Gender</th>
+						<th>Age</th>
+						<th>Servings</th>
+					</tr>
+				</thead>
+				<tbody id="miServingSpecs"></tbody>
+        	</table>
+			<a href="#jsonpOut" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+		</section>
+	</div>
+
+	<div data-role="page" id="group3">
+		<section class="ui-content" role="main">
+			<table data-role="table" class="ui-responsive">
+	      		<thead>
+					<tr>
+						<th>Gender</th>
+						<th>Age</th>
+						<th>Servings</th>
+					</tr>
+				</thead>
+				<tbody id="meServingSpecs"></tbody>
+        	</table>
+			<a href="#jsonpOut" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+		</section>
+	</div>
+
+	<div data-role="page" id="form">
+		<div data-role="header">
+  			<h1>Form</h1>
+  		</div>
+
+  		<div data-role="main" class="ui-content">
+    		<form id="myForm" method="post" onSubmit="return updateForm()">
+				<fieldset data-role="controlgroup" id="formList">
+				</fieldset>
+
+				<div class="ui-field-contain">
+			        <label for="question">Question:</label>
+			        <input type="text" name="question" id="question" placeholder="Your question..">
+			        <label for="email">E-mail:</label>
+			        <input type="email" name="email" id="email" placeholder="Your email..">
+		      	</div>
+
+		      	<label for="switch">Canadian Citizen:</label>
+        		<select name="switch" id="cdn" data-role="flipswitch">
+	    			<option value="yes">Yes</option>
+	    			<option value="no">No</option>
+	
+				</select> 
+
+        		<label for="switch">Senior Citizen:</label>
+        		<select name="switch" id="senior" data-role="flipswitch">
+	    			<option value="yes">Yes</option>
+	    			<option value="no" selected>No</option>
+				</select> 
+
+				<input type="submit" value="Submit Choice" />
+			</form>
+
+			<a href="#jsonpOut" class="ui-btn ui-icon-back ui-btn-icon-notext"></a>
+  		</div>
+  		
+	</div>
+
+
+
+</body>
+</html>

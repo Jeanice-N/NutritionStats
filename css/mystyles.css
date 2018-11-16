@@ -1,0 +1,21 @@
+.ui-block-b, .ui-block-a {
+  text-align:center;
+}
+#mainblocka{background:aliceblue; height:250px;}
+#mainblockb {background:bisque; height:250px;}
+
+.ui-icon-about:after
+{
+  background-image: url("icons/about.png");
+  background-size: 22px 22px;
+}
+.ui-icon-sheridan:after
+{
+  background-image: url("icons/sheridan.png");
+  background-size: 22px 22px;
+}
+.ui-icon-google:after
+{
+  background-image: url("icons/google.jpg");
+  background-size: 22px 22px;
+}
